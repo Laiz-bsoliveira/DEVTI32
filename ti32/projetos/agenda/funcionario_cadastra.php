@@ -50,6 +50,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             $enviaquery = mysqli_query($link, $sql);
             $retorno = mysqli_fetch_array($enviaquery) [0];
 
+            $usulogin = "Sem Cadastro";
+            $ususenha = "Sem Cadastro";
+            $ativofun = "0";
             // AGORA SALVAMOS TUDO NA TABELA DO USUARIO
             $sqlusu = "INSERT INTO usuarios (USU_LOGIN, USU_SENHA, FK_FUN_ID, USU_ATIVO)
             VALUES ('$usulogin', '$ususenha', $retorno, $ativofun)";
@@ -85,13 +88,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <input type='text' name='txtnome' placeholder='Digite o nome completo' required>
                 <br>
                 <label>CPF</label>
-                <input type='number' name='txtcpf' placeholder='Digite o CPF' required>
+                <input type='text' id="cpf" name='txtcpf' placeholder="000.000.000-00" maxlength="14" oninput="formatarCPF(this)">
                 <br>
                 <label>FUNÇÃO</label>
                 <input type='text' name='txtfuncao' placeholder='Digite a função' required>
                 <br>
                 <label>CONTATO</label>
-                <input type='number' name='txtcontato' placeholder='Digite o telefone' required>
+                <input type='number' id='telefone' name='txtcontato' placeholder='Digite o telefone' maxlength="15" required>
                 <br>
    
                 <!-- AGORA CADASTRAMOS O USUARIO NO SISTEMA -->

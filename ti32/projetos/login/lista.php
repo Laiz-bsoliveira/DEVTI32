@@ -1,5 +1,5 @@
 <?php
-include("conectadb.php");
+include("utils/conectadb.php");
 
 // PESQUISA NO BANCO
 $sql = "SELECT * FROM usuarios";

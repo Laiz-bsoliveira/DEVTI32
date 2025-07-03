@@ -3,12 +3,24 @@
 include("utils/conectadb.php");
 include("utils/verificalogin.php");
 
+//filtro de essssssssscolhas
+$ativo = 1;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $ativo = $_POST['filtro'];
+
+    if($ativo ===1){
+        $sql = "SELECT * FROM funcionarios INNER JOIN usuarios ON FK_FUN_ID = FUN_ID WHERE FUN_ATIVO = 1";
+        $enviaquery = mysqli_query($link, $sql);    
+    }
+    else{$sql = "SELECT * FROM funcionarios WHERE FUN_ATIVO = 0";
+        $enviaquery = mysqli_query($link, $sql);
+    }
+}
+
 //TRAZ A LISTA DE FUNCIONÁRIOS DO BANCO
-$sqlfun = "SELECT * FROM funcionarios";
+$sqlfun = "SELECT * FROM funcionarios INNER JOIN usuarios ON FK_FUN_ID = FUN_ID";
 $enviaquery = mysqli_query($link, $sqlfun);
 
-$sqlusu = "SELECT * FROM usuarios";
-$enviaquery2 = mysqli_query($link, $sqlusu);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,9 +37,16 @@ $enviaquery2 = mysqli_query($link, $sqlusu);
  <div class='global'>
    <div class='tabela'>
     <a href=backoffice.php>
-    <button type="submit" class="btn-sair">🚪 Sair</button>
-    </a>
-       <!--g src="img/voltar.png" alt="Voltar" class="voltar"> -->
+    <button type="submit" class="btn-sair">🚪 Sair</button></a>
+    <h1>LISTA DE FUNCIONÁRIOS</h1>
+    <form>
+    <div class='filtro'>
+        <input type='radio' name='filtro' value='1' required onclick= 'submit()' <?=$ativo == '1'?'checked':''?>>ATIVOS
+        <br>
+        <input type='radio' name='filtro' value='0' required onclick= 'submit()' <?=$ativo == '0'?'checked':''?>>INATIVOS
+
+    </div>
+    </form>
     <table>
         <tr>
             <th>ID FUNCIONARIO</th>
@@ -42,7 +61,6 @@ $enviaquery2 = mysqli_query($link, $sqlusu);
         <!-- INICIO PHP -->
         <?php
         while ($tbl = mysqli_fetch_array($enviaquery)){
-            while ($tbl2 = mysqli_fetch_array($enviaquery)){
         ?>
         <tr>
             <td><?=$tbl[0]?></td> <!-- COLETA CODIGO DO FUN [0]-->
@@ -51,8 +69,12 @@ $enviaquery2 = mysqli_query($link, $sqlusu);
             <td><?=$tbl[3]?></td> <!-- COLETA CONTATO DO FUN [3]-->
             <td><?=$tbl[4]?></td> <!-- COLETA STATUS DO FUN [1]-->
             <td><?=$tbl[5]?></td> <!-- COLETA STATUS DO FUN [1]-->
+            <td><?=$tbl[5] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO FUN [5]-->
             <!-- NOME USUARIO DO FUNCIONARIO -->
-            <td><?=$tbl2[1]?></td> <!-- COLETA LOGIN DO USUARIO [1]-->
+            <td><?=$tbl[7]?></td> <!--COLETA LOGIN DO USU [7]-->
+            <td><?= $tbl[10] == 1 ?"SIM":"NÃO"?></td> <!--COLETA STATUS DO USU [10]-->
+            <td><a href='funcionario_altera.php?id<?= $tb1[0]?>'>
+                <img src='icons/pencil1.png' width=20 style='border: 2px solid #fff; border-radius:3px; margin: 2px;'></a></td>
         </tr>
         <?php
         }
