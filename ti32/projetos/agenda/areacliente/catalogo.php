@@ -1,6 +1,7 @@
 <?php
 include("../utils/conectadb.php");
 // FAZER O INCLUDE DO VALIDACLIENTE
+include("../utils/validacliente.php");
 
 $sql = "SELECT * FROM catalogo WHERE CAT_ATIVO = 1";
 $enviaquery = mysqli_query($link, $sql);
@@ -23,7 +24,10 @@ $enviaquery = mysqli_query($link, $sql);
 
         <!-- FAZER O ESQUEMA DE ANÁLISE DE LOGIN -->
 
-        <!-- AQUI O CLIENTE NÃO FEZ LOGIN -->
+        <!--ABERTURA -->
+        <?php if(!isset($idcliente)){?>
+
+        <!-- CLIENTE NÃO FEZ LOGIN -->
         <div class='topo'>
             <h1>BEM VINDO AO SALÃO SALLONCCINA</h1>
             <!-- BOTÃO DE FAZER LOGIN -->
@@ -34,6 +38,9 @@ $enviaquery = mysqli_query($link, $sql);
             </div>
         </div>
 
+        <!-- FECHA PRA ABRIR-->
+         <?php} else{?>
+
         <!-- AQUI O CLIENTE JÁ FEZ LOGIN -->
         <div class="topo">
 
@@ -42,9 +49,12 @@ $enviaquery = mysqli_query($link, $sql);
 
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
-                <a href='logout.php'><img src='icons/backspace.png'width=50 height=50></a>
+                <a href='../logoutcliente.php'><img src='icons/backspace.png'width=50 height=50></a>
             </div>
         </div>
+
+        <?php } ?>
+         <!-- FECHA PRA FECHAR-->
     
             <div class='menus'>
                 <!-- OS CARDS DE MENU -->
@@ -69,13 +79,14 @@ $enviaquery = mysqli_query($link, $sql);
                     </div>
                     <label>PREÇO DO SERVIÇO</label>
                     <text>R$ <?= $retorno[3]?></text> <!--COLETA A PREÇO DO SERVIÇO POS 3 -->
-                    <!-- USANDO GET BRABO -->
+                    <!-- USANDO GET -->
                     <a href='verservico.php?id=<?= $retorno[0]?>'><button><img id='icone' src='../icons/zoom1.png'></button></a>
                     
                 </div>
             <?php
             }
             ?>
+            <!-- FIM -->
                 
             </div>
     </div>

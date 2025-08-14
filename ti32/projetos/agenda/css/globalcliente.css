@@ -1,0 +1,131 @@
+body{
+    background-color:   rgba(43, 17, 192, 0.831); ;
+}
+
+/* AJUSTE E ORGANIZAÇÃO DOS CONTEÚDOS */
+.topo{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    background-color:  rgba(43, 17, 192, 0.831);
+    border-radius: 30px;
+    height: 75px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #efe9e1;
+}
+
+.topo h1{
+    margin-left: 20px;
+}
+
+.logout{
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-self: center;
+    
+}
+/* PERSONALIZANDO APENAS O INPUT DO BOTÃO LOGOUT. ARREDONDADO */
+.logout input[type=submit]{
+    border-radius: 100%;
+    width: 50px;
+    height:50px;
+    border: 2px solid #B17871;
+}
+
+
+.menus{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around; 
+}
+
+.menu1{
+    width: 550px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(43, 17, 192, 0.831);
+    margin: 20px;
+    border-radius: 20px;
+    border:#B17871 solid 4px;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.menu1 img{
+    border-radius: 100%;
+}
+
+.menu1 label{
+    border-radius: 10px;
+    margin-bottom: 5px;
+    color: #898787;
+    font-size: 30px;
+    text-align: center;
+    padding: 2px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.menus a{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 400px;
+    padding: 10px;
+}
+
+.texto-card{
+    width: 350px;
+    border-radius: 10px;
+    margin: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    padding: 2px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.menu1 text{
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    padding: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.menu1 button{
+    background-color:  rgba(43, 17, 192, 0.831);
+    width: 90%;
+    height: 20px;
+    padding: 20px;
+    
+}
+
+#icone{
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    background-color:  rgba(43, 17, 192, 0.831);
+    
+}
+
+
+    /* EFEITO DE MOUSE HOVER */
+    /* LISTA USUARIOS */
+.menu1:hover{
+    transform: scale(1.109); /*EFEITO ALTERANDO ESCALA EM 1.1x*/
+    background-color:  rgba(43, 17, 192, 0.831);
+}
+
+.menu1{
+    transition: transform 0.5s; /*TEMPO PARA CONCLUSÃO DO EFEITO */
+}
+
+/* LABELS DOS MENUS */
