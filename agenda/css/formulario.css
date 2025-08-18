@@ -1,0 +1,64 @@
+body {
+    width: auto;
+}
+
+.global {
+    display: flex;
+    flex-flow: column;
+    background-color: rgb(213, 224, 233);
+    width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    justify-self: center;
+}
+
+.formulario {
+    height: auto;
+    background-color: rgb(213, 224, 233);
+    border-radius: 20px;
+    border: 2px solid rgb(116, 76, 228); /*BORDA FIXA*/
+}
+
+.login {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    font-family: 'Habibi', sans-serif;
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid rgb(116, 76, 228); /*BORDA FIXA*/
+
+}
+
+.login label {
+    color: rgb(5, 76, 156);
+    font-size: 20px;
+    font-family: 'Habibi', sans-serif;
+}
+
+.login input[type='text'], input[type='password'], INPUT[type='submit'], input[type='number'] {
+    height: 40px;
+    border-radius: 20px;
+    border: 3px solid blue; /*BORDA FIXA*/
+}
+
+.login input[type='submit']:hover {
+    background-color: rgb(22, 71, 114);
+    border-radius: 20px;
+    font-family: 'Habibi', sans-serif;
+    color: white;
+    border: none;
+    height: 50px;
+    cursor: pointer; 
+}
+
+.login input[type='radio'] {
+    width: 17px;
+    height: 35px;
+    margin-left: auto;
+}
+
+.rbativo {
+    display: flex;
+    flex-flow: column;
+}
