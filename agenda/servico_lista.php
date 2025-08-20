@@ -81,7 +81,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <?php
                     
                         while ($tbl = mysqli_fetch_array($enviaquery)){
-                            // while($tbl2 = mysqli_fetch_array($enviaquery2)){
                 ?>
                 
                 <tr class='linha'>
@@ -95,7 +94,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <td><?=$tbl[5] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO CAT [5]-->
                     <td><img id='cat_imagem' src='data:image/jpeg;base64,<?=$tbl[6]?>' width=150 height=150></td>
                  
-                    <!-- USANDO GET BRABO -->
+                    <!-- USANDO GET -->
                     <td><a href='servico_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20></a></td>
                     
 
