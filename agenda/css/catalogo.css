@@ -5,7 +5,6 @@ body{
 .global{
     display: flex;
     flex-flow: row;
-    /* background-color: #5d1c34	; */
     width: 90%;
     height: auto;
     border-radius: 20px;
@@ -22,7 +21,11 @@ body{
 .formulario{
     height: auto;
     margin-top: 20px;
+<<<<<<< HEAD
     background-color: #5d1c34;
+=======
+    background-color:/*rgb(95, 94, 204)*/ #0077BE;
+>>>>>>> 3337629e4384ea92007a026ee2c9051c2abc1ae9
     width: 90%;
     border-radius: 20px;
     border: #B17871 solid 2px;
