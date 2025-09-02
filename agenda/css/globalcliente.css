@@ -1,5 +1,5 @@
 body{
-    background-color:   rgba(43, 17, 192, 0.831); ;
+    background-color:  black  ;
 }
 
 /* AJUSTE E ORGANIZAÇÃO DOS CONTEÚDOS */
@@ -7,11 +7,11 @@ body{
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    background-color:  rgba(43, 17, 192, 0.831);
+    background-color: #b17871bd;
     border-radius: 30px;
     height: 75px;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(95, 94, 204);
+    color: #efe9e1;
 }
 
 .topo h1{
@@ -32,7 +32,7 @@ body{
     border-radius: 100%;
     width: 50px;
     height:50px;
-    border: 2px solid rgb(95, 94, 204);
+    border: 2px solid #B17871;
 }
 
 
@@ -47,10 +47,10 @@ body{
     height: 550px;
     display: flex;
     justify-content: center;
-    background-color: rgba(43, 17, 192, 0.831);
+    background-color: #5d1c34dd;
     margin: 20px;
     border-radius: 20px;
-    border:rgb(95, 94, 204) solid 4px;
+    border:#B17871 solid 4px;
     flex-flow: column;
     align-items: center;
     padding: 20px;
@@ -64,7 +64,7 @@ body{
 .menu1 label{
     border-radius: 10px;
     margin-bottom: 5px;
-    color: rgb(95, 94, 204);
+    color: #898787;
     font-size: 30px;
     text-align: center;
     padding: 2px;
@@ -84,7 +84,7 @@ body{
     width: 350px;
     border-radius: 10px;
     margin: 20px;
-    color: rgb(95, 94, 204);
+    color: #ffffff;
     font-size: 20px;
     text-align: center;
     padding: 2px;
@@ -93,7 +93,7 @@ body{
 
 
 .menu1 text{
-    color: rgb(95, 94, 204);
+    color: #ffffff;
     font-size: 25px;
     text-align: center;
     padding: 3px;
@@ -101,7 +101,7 @@ body{
 }
 
 .menu1 button{
-    background-color:  rgba(43, 17, 192, 0.831);
+    background-color: #5f3d49ad;
     width: 90%;
     height: 20px;
     padding: 20px;
@@ -112,7 +112,7 @@ body{
     margin-top: -25px;
     width: 50px;
     height: 50px;
-    background-color:  rgba(43, 17, 192, 0.831);
+    background-color: #5d1c3400;
     
 }
 
@@ -121,7 +121,7 @@ body{
     /* LISTA USUARIOS */
 .menu1:hover{
     transform: scale(1.109); /*EFEITO ALTERANDO ESCALA EM 1.1x*/
-    background-color:  rgba(43, 17, 192, 0.831);
+    background-color: #5d1c348d;
 }
 
 .menu1{

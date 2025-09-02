@@ -8,8 +8,6 @@ $enviaquery = mysqli_query($link, $sql);
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,10 +22,10 @@ $enviaquery = mysqli_query($link, $sql);
 
         <!-- FAZER O ESQUEMA DE ANÁLISE DE LOGIN -->
 
-        <!--ABERTURA -->
-        <?php if(!isset($idcliente)){?>
+        <!-- ABERTURA DO PORTAL  -->
+<?php if(!isset($idcliente)){?>
 
-        <!-- CLIENTE NÃO FEZ LOGIN -->
+        <!-- AQUI O CLIENTE NÃO FEZ LOGIN -->
         <div class='topo'>
             <h1>BEM VINDO AO SALÃO SALLONCCINA</h1>
             <!-- BOTÃO DE FAZER LOGIN -->
@@ -38,25 +36,30 @@ $enviaquery = mysqli_query($link, $sql);
             </div>
         </div>
 
-        <!-- FECHA PRA ABRIR-->
-         <?php} else{?>
-
+<!-- FECHA PRA ABRIR -->
+<?php } else{ ?>
         <!-- AQUI O CLIENTE JÁ FEZ LOGIN -->
         <div class="topo">
 
             <!-- AQUI VAI TRAZER O NOME DO USUARIO LOGADO -->
             <h1>BEM VINDO <?php echo strtoupper($nomecliente)?> </h1>
-
+            
+            <div class='login'>
+                <a href='verperfil.php'>
+                    <img src='../icons/user2.png'width=50 height=50>
+                </a>
+            </div>
             <!-- BOTÃO DE ENCERRAMENTO DE SESSÃO -->
             <div class="logout" method='post'>
-                <a href='../logoutcliente.php'><img src='icons/backspace.png'width=50 height=50></a>
+                <a href='../logoutcliente.php'><img src='../icons/backspace.png'width=50 height=50></a>
             </div>
         </div>
 
-        <?php } ?>
-         <!-- FECHA PRA FECHAR-->
-    
-            <div class='menus'>
+<?php } ?>
+<!-- FECHA PRA FECHAR -->
+
+
+    <div class='menus'>
                 <!-- OS CARDS DE MENU -->
             
                 <!-- AQUI O PORTAL COMEÇA -->
@@ -79,15 +82,14 @@ $enviaquery = mysqli_query($link, $sql);
                     </div>
                     <label>PREÇO DO SERVIÇO</label>
                     <text>R$ <?= $retorno[3]?></text> <!--COLETA A PREÇO DO SERVIÇO POS 3 -->
-                    <!-- USANDO GET -->
+                    <!-- USANDO GET BRABO -->
                     <a href='verservico.php?id=<?= $retorno[0]?>'><button><img id='icone' src='../icons/zoom1.png'></button></a>
                     
                 </div>
             <?php
             }
             ?>
-            <!-- FIM -->
-                
+                <!-- FIM PORTAL -->
             </div>
     </div>
     

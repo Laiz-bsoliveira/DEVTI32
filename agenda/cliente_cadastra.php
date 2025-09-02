@@ -4,6 +4,8 @@
 include("utils/conectadb.php");
 include("utils/verificalogin.php");
 
+
+
 //APÓS O VAMOS CADASTRAR O FUN E O USU AO MESMO TEMPO
 if($_SERVER['REQUEST_METHOD']=='POST'){
     
@@ -21,7 +23,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $sql = "SELECT COUNT(CLI_CPF) FROM clientes
     WHERE CLI_CPF = '$cpfcli'";
     
-    // ENVIANDO A QUERY PARA O BANCO
+    // ENVIANDO A QUERY PARA O BANQUINHO
     $enviaquery = mysqli_query($link, $sql);
     // RETORNO DO QUE VEM DO BANCO
     $retorno = mysqli_fetch_array($enviaquery) [0];
@@ -33,7 +35,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     }
     else{
-        // SE O FUNCIONÁRIO NÃO ESTIVER CADASTRADO
+        // CASO FUNCIONÁRIO NÃO ESTEJA CADASTRADO
         $sql = "INSERT INTO clientes (CLI_NOME, CLI_CPF, CLI_TEL,CLI_DATANASC, CLI_ATIVO, CLI_SENHA)
         VALUES ('$nomecli', '$cpfcli', '$contatocli', '$datanasccli', $ativocli,  '$senhacli' )";
 
@@ -44,6 +46,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         echo("<script>window.alert('CLIENTE ALASTRADO COM SUCESSO!');</script>");
     }
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +65,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <div class="global">
         
         <div class="formulario">
+<!-- FIRULAS Y FIRULAS -->
  
             <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50></a>
             

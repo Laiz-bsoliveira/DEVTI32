@@ -50,8 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <div class='global'>
         <div class='tabela'>
             <!-- BOTÃO VOLTAR -->
-             <a href=backoffice.php>
-             <button type="submit" class="btn-sair">🚪 Sair</button></a>
+            <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50></a>
             <h1>LISTA DE CLIENTES</h1>
              <!-- CRIAÇÃO DE FILTRO DE TABLE -->
              <form action='servico_lista.php' method='post'>
@@ -81,6 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <?php
                     
                         while ($tbl = mysqli_fetch_array($enviaquery)){
+                            // while($tbl2 = mysqli_fetch_array($enviaquery2)){
                 ?>
                 
                 <tr class='linha'>
@@ -94,7 +94,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <td><?=$tbl[5] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO CAT [5]-->
                     <td><img id='cat_imagem' src='data:image/jpeg;base64,<?=$tbl[6]?>' width=150 height=150></td>
                  
-                    <!-- USANDO GET -->
+                    <!-- USANDO GET BRABO -->
                     <td><a href='servico_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20></a></td>
                     
 

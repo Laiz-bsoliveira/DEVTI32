@@ -4,23 +4,36 @@ include("utils/conectadb.php");
 include("utils/verificalogin.php");
 
 // TRAZ OS FUNCIONÁRIOS DO BANCO
-$sqlcli = "SELECT * FROM clientes";
+$sqlcli = "SELECT * FROM clientes WHERE CLI_ATIVO = 1";
 $enviaquery = mysqli_query($link, $sqlcli);
 
-$ativo = 1;
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $ativo = $_POST['filtro'];
 
-    if($ativo ===1){
-        $sql = "SELECT * FROM funcionarios INNER JOIN usuarios ON FK_FUN_ID = FUN_ID WHERE FUN_ATIVO = 1";
-        $enviaquery = mysqli_query($link, $sql);    
-    }
-    else{$sql = "SELECT * FROM funcionarios WHERE FUN_ATIVO = 0";
+// AQUI FILTRA AS MINHAS ESCOLHAS
+$ativo = 1;
+
+// AGORA FUNÇÕES DE CADA CLICK
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $ativo = $_POST['filtro'];
+    echo($ativo);
+    
+    if($ativo == 1){
+        // VERIFICA SE ATIVO É IGUAL A 1
+        $sql = "SELECT * FROM clientes WHERE CLI_ATIVO = 1";
         $enviaquery = mysqli_query($link, $sql);
     }
+    else if($ativo == 0){
+        // VERIFICA SE ATIVO É IGUAL A 0
+        $sql = "SELECT * FROM clientes WHERE CLI_ATIVO = 0";
+        $enviaquery = mysqli_query($link, $sql);
+    }
+    else{
+    // VERIFICA SE ATIVO É DIFERENTE DE 1 E 0
+        $sql = "SELECT * FROM clientes;";
+        $enviaquery = mysqli_query($link, $sql);
+    }
+    
+    
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +50,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class='global'>
         <div class='tabela'>
             <!-- BOTÃO VOLTAR -->
-            <a href=backoffice.php><button type="submit" class="btn-sair">🚪 Sair</button></a>
+            <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50></a>
             <h1>LISTA DE CLIENTES</h1>
-            
+             <!-- CRIAÇÃO DE FILTRO DE TABLE -->
+             <form action='cliente_lista.php' method='post'>
+                <div class='filtro'>
+                    <input type='radio' name='filtro' value='1' required onclick='submit()' <?= $ativo == '1'?'checked':''?>>ATIVOS
+                   
+                    <input type='radio' name='filtro' value='0' required onclick='submit()' <?= $ativo == '0'?'checked':''?>>INATIVOS 
+                   
+                    <input type='radio' name='filtro' value='2' required onclick='submit()' <?= $ativo == '2'?'checked':''?>>TODOS 
+
+                </div>
+            </form>
            
             <table>
                 <tr> 
@@ -52,10 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <th>ALTERAÇÃO</th>
                 </tr>
 
-                <!-- INCIO PHP -->
+                <!-- COMEÇOU O PHP -->
                 <?php
                     
                         while ($tbl = mysqli_fetch_array($enviaquery)){
+                            // while($tbl2 = mysqli_fetch_array($enviaquery2)){
                 ?>
                 
                 <tr class='linha'>
@@ -67,8 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <td><?=$tbl[4] == 1? 'ATIVO':'INATIVO'?></td> <!--COLETA ATIVO DO CLI [5]-->
                     
                     
-                    <!-- USANDO GET-->
+                    <!-- USANDO GET BRABO -->
                     <td><a href='cliente_altera.php?id=<?= $tbl[0]?>'><img src='icons/pencil1.png' width=20 height=20></a></td>
+                    
 
                     
                 </tr>

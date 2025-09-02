@@ -1,20 +1,62 @@
+
+
+.global h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(186, 192, 198);
+    text-align: center;
+}
+
 .tabela{
-    background-color:rgb(22, 71, 114);
+    background-color: #5d1c34 ;
     border-radius: 10px;
     padding: 10px;
     width: auto;
     height: auto;
-    font-family: 'Habibi', sans-serif;
+    
 }
-/* PROPRIEDADES DE UMA TABELA*/
+
+/* PROPRIEDADES BÁSICAS DE TABELA */
 table{
     width: 100%;
     border-collapse: collapse;
+    background-color: #d1d1d1;
+    border-radius: 10px;
+    
+}
+td, th{
+    border: 2px solid #767676;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+
 }
 
-td, th{
-    background-color: rgb(213, 224, 233);
-    border: 1px solid rgb(5, 76, 156);
-    text-align: center;
-    font-family: 'Habibi', sans-serif;
+th{
+     color: rgb(37, 37, 37);
+     background-color: #908473;
+}
+
+tr{
+     transition: transform 0.5s; /*TEMPO PARA CONCLUSÃO DO EFEITO */
+}
+
+
+tr:hover{
+    background-color: #c60052;
+    transform: scale(1.008); /*EFEITO ALTERANDO ESCALA EM 1.1x*/
+
+}
+
+.filtro{
+    width: 300px;
+    background-color: #003064;
+    border-radius: 10px;
+    color: #899481;
+    padding: 10px;
+    border: 2px solid #899481;
+}
+
+#cat_imagem{
+    border-radius: 20px;
+    border: 5px solid rgb(252, 226, 174);
 }

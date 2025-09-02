@@ -9,12 +9,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $temposervico = $_POST['txttempo'];
     $ativo = $_POST['ativo'];
 
-    //  IMAGEM ⛧
+    // RITUAL COM A IMAGEM ⛧
     if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK){
         $imagem_temp = $_FILES['imagem']['tmp_name'];
         $imagem = file_get_contents($imagem_temp);
         $imagem_base64 = base64_encode($imagem);
     }
+    // RITUAL FINALIZADO
 
     // VERIFICA O PRODUTO NA BASE
 
@@ -50,14 +51,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/global.css">
-    <link href="https://fonts.cdnfonts.com/css/habibi" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/master-lemon" rel="stylesheet">
     <title>CADASTRO DE SERVIÇOS</title>
 </head>
 <body>
     <div class="global">
         
         <div class="formulario">
-
+<!-- FIRULAS Y FIRULAS -->
+ 
             <a href="backoffice.php"><img src='icons/arrow47.png' width=50 height=50 ></a>
             
             <form class='login' action="servico_cadastra.php" method="post" enctype="multipart/form-data">
@@ -71,22 +73,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <label>PREÇO</label>
                 <input type='decimal'name='txtpreco' placeholder='HUE$'>
                 <br>
-                <label>DURAÇÃO (Minutos)</label>
-                <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' required>
-                <br>
+                <!-- <label>DURAÇÃO</label>
+                <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' required> -->
+                <!-- SELECT OPTION LISTA DE OPÇÕES -->
                 <select name='txttempo'>
-                <option value='<?=$temposervico?>'><?=$temposervico?></option>
-                <option value='0'>SEM TEMPO</option>
-                <option value='30'>30 MINUTOS</option>
-                <option value='60'>1:00 MINUTOS</option>
-                <option value='90'>1:30 MINUTOS</option>
-                <option value='120'>2:00 MINUTOS</option>
-                <option value='180'>2:30 MINUTOS</option>
-                <option value='240'>3:00 MINUTOS</option>
-                <option value='400'>3:30 MINUTOS</option>
-                <option value='460'>4:00 MINUTOS</option>
+                    <option value='0'>SEM TEM IRMÃO/IRMÃ</option>
+                    <option value='30'>30 MINUTOS</option>
+                    <option value='60'>1 HORA</option>
+                    <option value='90'>1:30 HORA</option>
+                    <option value='120'>2 HORAS</option>
+                    <option value='180'>2:30 HORAS</option>
+                    <option value='240'>3:00 HORAS</option>
+                    <option value='400'>3:30 HORAS</option>
+                    <option value='460'>4 HORAS</option>
                 </select>
-                <!-- INPUT DE IMAGEM PARA O BANCO DE DADOS -->
+
+
+                <br>
+                <!-- INPUT DE IBAGEM PARA O BANDO DE DADOS -->
                 <label>FAÇA O UPLOAD DA IMAGEM</label>
                 <input type='file' name='imagem'>
                 <br>
