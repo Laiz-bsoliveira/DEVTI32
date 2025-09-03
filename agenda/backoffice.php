@@ -17,10 +17,14 @@ if(isset($_SESSION['idfuncionario'])){
     $nomeusuario = mysqli_fetch_array($enviaquery) [0];
 }
 else{
-    echo"<script>window.alert('NÃO LOGADO MEU BOM');</script>";
+    echo"<script>window.alert('NÃO LOGADO MY FRIEND');</script>";
     echo"<script>window.location.href='login.php';</script>";
 
 }
+
+$sqlagenda="SELECT FK_CAT_ID, CAT_NOME, AG_DATA, AG_HORA, CLI_NOME, CLI_FUN, CAT_IMAGEM"
+
+
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +52,7 @@ else{
             <div class="logout" method='post'>
                 <a href='logout.php'><img src='icons/backspace.png'width=50 height=50></a>
             </div>
+            
         </div>
 
             <div class='menus'>
@@ -105,7 +110,8 @@ else{
                 </div>
               
             </div>
-            <?php } ?>
+            <?php } 
+            ?>
     </div>
     
 </body>

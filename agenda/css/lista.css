@@ -2,7 +2,7 @@
 
 .global h1{
     font-family: 'Times New Roman', Times, serif;
-    color: rgb(186, 192, 198);
+    color: rgb(95, 94, 204);
     text-align: center;
 }
 
@@ -32,7 +32,7 @@ td, th{
 }
 
 th{
-     color: rgb(37, 37, 37);
+     color: rgb(95, 94, 204);
      background-color: #908473;
 }
 
@@ -49,14 +49,14 @@ tr:hover{
 
 .filtro{
     width: 300px;
-    background-color: #003064;
+    background-color: rgba(43, 17, 192, 0.831);
     border-radius: 10px;
-    color: #899481;
+    color: rgb(95, 94, 204);
     padding: 10px;
-    border: 2px solid #899481;
+    border: 2px #96a7dd solid;
 }
 
 #cat_imagem{
     border-radius: 20px;
-    border: 5px solid rgb(252, 226, 174);
+    border: 5px #96a7dd solid;
 }
