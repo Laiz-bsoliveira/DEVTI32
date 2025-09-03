@@ -77,15 +77,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <input type='number' name='txttempo' placeholder='Digite o tempo em Minutos' required> -->
                 <!-- SELECT OPTION LISTA DE OPÇÕES -->
                 <select name='txttempo'>
-                    <option value='0'>SEM TEM IRMÃO/IRMÃ</option>
+                    <option value='0'>SEM TEMPO MY FRIEND</option>
                     <option value='30'>30 MINUTOS</option>
-                    <option value='60'>1 HORA</option>
+                    <option value='60'>1:00 HORA</option>
                     <option value='90'>1:30 HORA</option>
-                    <option value='120'>2 HORAS</option>
+                    <option value='120'>2:00 HORAS</option>
                     <option value='180'>2:30 HORAS</option>
                     <option value='240'>3:00 HORAS</option>
                     <option value='400'>3:30 HORAS</option>
-                    <option value='460'>4 HORAS</option>
+                    <option value='460'>4:00 HORAS</option>
                 </select>
 
 

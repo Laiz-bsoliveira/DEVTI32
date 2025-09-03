@@ -22,7 +22,14 @@ else{
 
 }
 
-$sqlagenda="SELECT FK_CAT_ID, CAT_NOME, AG_DATA, AG_HORA, CLI_NOME, CLI_FUN, CAT_IMAGEM"
+$sqlagenda="SELECT FK_CAT_ID, CAT_NOME, AG_DATA, AG_HORA, CLI_NOME, CLI_FUN, CAT_IMAGEM
+FROM agenda
+INNER JOIN catalogo ON FK_CAT_ID = CAT_ID
+INNER JOIN clientes ON FK_CLI_ID = CLI_ID
+INNER JOIN funcionarios ON FK_FUN_ID = FUN_ID
+WHERE FUN_ID = $idfuncionario AND AG_DATA = CURRENT_DATE()";
+
+$enviaqueryagenda = mysqli_query($link, $sqlagenda);
 
 
 ?>
@@ -110,9 +117,53 @@ $sqlagenda="SELECT FK_CAT_ID, CAT_NOME, AG_DATA, AG_HORA, CLI_NOME, CLI_FUN, CAT
                 </div>
               
             </div>
-            <?php } 
-            ?>
-    </div>
+            <?php }?>
+
+
+            <br>
+            <br>
+
+                <!-- TABELA DE AGENDAMENTO-->
+                 <!-- ADM VÊ TODOS OS AGENDAMENTOS-->
+
+                 <!-- FAZER VALIDAÇÃO FUNCIONÁRIO-->
+
+                 <!--AJUSTE DE TABELA PARA VISUALIZAR: AGENDA + CORTE + FUNC + FOTO-->
+
+            <table>
+                <tr> 
+                    <th>ID SERVIÇO</th>
+                    <th>NOME</th>
+                    <th>DATA SERVIÇO</th>
+                    <th>HORA SERVIÇO</th>
+                    <th>CLIENTE</th>
+                    <th>FUNCIONÁRIO</th>
+                    <th>IMAGEM</th>
+                </tr>
+
+                <!-- INICIO DO PHP -->
+                <?php
+                    
+                        while ($tbl = mysqli_fetch_array($enviaqueryagenda)){
+                ?>
+                
+                <tr class='linha'>
+                    <td><?=$tbl[FK_CAT_ID]?></td> <!--COLETA CÓDIGO DO CAT [0] -->
+                    <td><?=$tbl[CAT_NOME]?></td> <!--COLETA NOME DO CAT [1]-->
+                    <td><?=$tbl[AG_DATA]?></td> <!--COLETA DATA DO SERVIÇO[2]-->
+                    <td><?=$tbl[AG_HORA]?></td> <!--COLETA HORA DO SERVIÇO[3]-->
+                    <td><?=$tbl[CLI_NOME]?></td> <!--COLETA NOME DO CLIENTE[3]-->
+                    <td><?=$tbl[FUN_NOME]?></td> <!--COLETA NOME DO FUNCIONÁRIO[3]-->
+                    <td><img id='cat_imagem' src='data:image/jpeg;base64,<?=$tbl['CAT_IMAGEM']?>' width=150 height=150></td>                  
+
+                    
+                </tr>
+                <?php
+                    }
+                
+                ?>
+            </table>
+        </div>
     
 </body>
 </html>
